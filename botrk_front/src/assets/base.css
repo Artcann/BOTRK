@@ -1,0 +1,40 @@
+/* Color palette */
+:root {
+    --darkblue: #12232E;
+    --darkblue-soft: #203647;
+    --blue: #007CC7;
+    --blue-soft: #4DA8DA;
+}
+
+:root {
+    --color-background: var(--darkblue);
+    --color-background-soft: var(--darkblue-soft);
+    
+    --color-button: var(--blue);
+
+    --color-text: white;
+}
+
+#app {
+    width: 100%;
+}
+
+body {
+    color: var(--color-text);
+    background: var(--color-background);
+
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    text-rendering: optimizeLegibility;
+
+    height: 100%;
+}
+
+a, a:hover, a:visited {
+    color: white;
+    cursor: pointer;
+    
+}
