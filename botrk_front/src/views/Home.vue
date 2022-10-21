@@ -1,15 +1,36 @@
 <script lang="ts">
+import { createPinia } from 'pinia';
+import { usePortScanStore } from '../stores/portScan.store';
+
     export default {
         name: "Home",
+        setup() {
+            const portScanReport = usePortScanStore();
+            return {
+                portScanReport
+            }
+        },
+        data() {
+            return {
+                address: ""
+            }
+        },
+        methods: {
+            async scan() {
+                this.portScanReport.fetchPortScanReport(this.address);
+
+                //window.location.href = "/results"
+            }
+        }
     }
 </script>
 
 <template>
 
     <div class="home_wrapper">
-        <input placeholder="Enter address here">
+        <input v-model="address" placeholder="Enter address here">
         <br>
-        <button>Scan</button>
+        <button @click="scan()">Scan</button>
     </div>
 
 </template>
