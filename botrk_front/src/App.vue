@@ -12,28 +12,13 @@
     }
 
     export default {
-        data() {
-            return {
-                currentPath: window.location.hash
-            };
-        },
-        computed: {
-            currentView() {
-                return routes[this.currentPath.slice(1) || "/"];
-            }
-        },
-        mounted() {
-            window.addEventListener("hashchange", () => {
-                this.currentPath = window.location.hash;
-            });
-        },
         components: { TheHeader }
 }
 </script>
 
 <template>
     <TheHeader></TheHeader>
-    <component :is="currentView"></component>
+    <router-view></router-view>
 </template>
 
 <style>

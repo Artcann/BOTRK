@@ -19,16 +19,20 @@
 
 <style>
     .header_wrapper {
-        height: 10%;
+        height: 100px;
         width: 100%;
-        position: absolute;
+        position: sticky;
         top: 0;
         left: 0;
 
         background: var(--color-background-soft);
         border-radius: 0 0 20px 20px;
 
-        filter: drop-shadow(0px 10px 4px #00000050)
+        filter: drop-shadow(0px 10px 4px #00000050);
+
+        display: grid;
+        grid-column-start: 1;
+        grid-column-end: -1;
     }
 
     .title {

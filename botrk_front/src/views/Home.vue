@@ -1,11 +1,12 @@
 <script lang="ts">
 import { createPinia } from 'pinia';
-import { usePortScanStore } from '../stores/portScan.store';
+import { useScanStore } from '../stores/scan.store';
+import router from "vue-router";
 
     export default {
         name: "Home",
         setup() {
-            const portScanReport = usePortScanStore();
+            const portScanReport = useScanStore();
             return {
                 portScanReport
             }
@@ -17,9 +18,10 @@ import { usePortScanStore } from '../stores/portScan.store';
         },
         methods: {
             async scan() {
-                this.portScanReport.fetchPortScanReport(this.address);
+                //this.portScanReport.fetchPortScanReport(this.address);
+                this.portScanReport.fetchNiktoScanReport(this.address);
 
-                //window.location.href = "/results"
+                this.$router.push('/results')
             }
         }
     }
@@ -28,7 +30,10 @@ import { usePortScanStore } from '../stores/portScan.store';
 <template>
 
     <div class="home_wrapper">
-        <input v-model="address" placeholder="Enter address here">
+        <input 
+        v-model="address" 
+        placeholder="Enter address here" 
+        pattern="http://^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$">
         <br>
         <button @click="scan()">Scan</button>
     </div>
@@ -37,7 +42,11 @@ import { usePortScanStore } from '../stores/portScan.store';
 
 <style scoped>
     .home_wrapper {
-        width: 100%;
+        grid-column-start: 1;
+        grid-column-end: -1;
+
+        grid-row-start: 3;
+
     }
 
     input {
