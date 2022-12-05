@@ -6,7 +6,8 @@ export const useScanStore = defineStore({
     state: () => ({
         open_ports: {} as any,
         nikto_tests_result: [] as Array<String>,
-        nikto_report: [] as Array<String>
+        nikto_report: [] as Array<String>,
+        dirsearch_report: {} as any
     }),
     actions: {
         async fetchPortScanReport(address: string) {
@@ -27,6 +28,15 @@ export const useScanStore = defineStore({
 
             this.nikto_tests_result = res.data[0];
             this.nikto_report = res.data[1];
+        },
+        async fetchDirsearchScanReport(hostname: string) {
+            let res = await axios({
+                url: "/dirsearch_scan?hostname=" + hostname + "&id=testweb",
+                method: "GET",
+                baseURL: "http://127.0.0.1:5000"
+            })
+
+            this.dirsearch_report = res.data;
         }
     }
 })

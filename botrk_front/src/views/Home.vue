@@ -19,7 +19,8 @@ import router from "vue-router";
         methods: {
             async scan() {
                 //this.portScanReport.fetchPortScanReport(this.address);
-                this.portScanReport.fetchNiktoScanReport(this.address);
+                //this.portScanReport.fetchNiktoScanReport(this.address);
+                this.portScanReport.fetchDirsearchScanReport(this.address);
 
                 this.$router.push('/results')
             }
