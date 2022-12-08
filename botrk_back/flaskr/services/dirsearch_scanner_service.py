@@ -1,8 +1,7 @@
 from subprocess import Popen, PIPE
-import re
+import time
 
 def getDirsearchScanReport(url, id):
-
     print(url)
     file_id = "/scan/dirsearch/dirsearch_" + str(id)
     process = Popen(["dirsearch", "-u", url, "-w /usr/share/wordlists/dirb/common.txt", "-t 80", "-r", "--recursion-depth=1", "--suffixes=.php", "-o", file_id], stdout=PIPE)

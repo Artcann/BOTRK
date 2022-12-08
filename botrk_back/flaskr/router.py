@@ -1,6 +1,7 @@
 import flaskr.services.port_scanner_service as port_scanner_service
 import flaskr.services.nikto_scanner_service as nikto_scanner_service
 import flaskr.services.dirsearch_scanner_service as dirsearch_scanner_service
+import flaskr.services.sqlmap_scanner_service as sqlmap_scanner_service
 
 from flask import Blueprint, request
 from flask_cors import cross_origin
@@ -21,3 +22,9 @@ def nikto_scan():
 @cross_origin(origin="*")
 def dirsearch_scan():
     return dirsearch_scanner_service.getDirsearchScanReport(request.args.get("hostname"),"testid") #request.args.get("id"))
+
+    
+@route_bp.route("/sqlmap_scan", methods=['GET'])
+@cross_origin(origin="*")
+def sqlmap_scan():
+    return sqlmap_scanner_service.getSqlmapScanReport("testid")

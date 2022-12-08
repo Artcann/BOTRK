@@ -613,6 +613,7 @@ broker
 browse
 browser
 Browser
+brute
 bs
 bsd
 bt
