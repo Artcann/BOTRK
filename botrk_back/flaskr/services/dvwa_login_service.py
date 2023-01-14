@@ -24,5 +24,4 @@ def getDVWALogin():
 				}
 				request = session.post(address, data = creds)
 				cookie = html.cookies.get_dict()
-				print(html.cookies.get_dict)
 	return cookie
