@@ -3707,6 +3707,7 @@ spyware
 sq
 sql
 sqli
+sqli_blind
 SQL
 sqladmin
 sql-admin
