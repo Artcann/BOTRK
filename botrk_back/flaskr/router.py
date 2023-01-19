@@ -1,7 +1,9 @@
+import json
 import flaskr.services.port_scanner_service as port_scanner_service
 import flaskr.services.nikto_scanner_service as nikto_scanner_service
 import flaskr.services.dirsearch_scanner_service as dirsearch_scanner_service
 import flaskr.services.sqlmap_scanner_service as sqlmap_scanner_service
+import flaskr.services.command_injection_service as command_injection
 
 from flask import Blueprint, request
 from flask_cors import cross_origin
@@ -12,11 +14,16 @@ route_bp = Blueprint('route_bp', __name__)
 def port_scan():
     return port_scanner_service.getPortScanReport(request.args.get('hostname'))
 
+@route_bp.route("/reverse_shell", methods=['GET'])
+@cross_origin(origin="*")
+def reverse_shell():
+    command_injection.reverse_shell(request.args.get('listenner_url'), request.args.get('listenner_port'))
+    return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
 
-@route_bp.route("/nikto_scan", methods=['GET'])
+""" @route_bp.route("/nikto_scan", methods=['GET'])
 @cross_origin(origin="*")
 def nikto_scan():
-    return nikto_scanner_service.getNiktoScanReport(request.args.get("hostname"))
+    return nikto_scanner_service.getNiktoScanReport(request.args.get("hostname")) """
 
 @route_bp.route("/dirsearch_scan", methods=['GET'])
 @cross_origin(origin="*")
@@ -24,7 +31,7 @@ def dirsearch_scan():
     return dirsearch_scanner_service.getDirsearchScanReport(request.args.get("hostname"),"testid") #request.args.get("id"))
 
     
-@route_bp.route("/sqlmap_scan", methods=['GET'])
+""" @route_bp.route("/sqlmap_scan", methods=['GET'])
 @cross_origin(origin="*")
 def sqlmap_scan():
-    return sqlmap_scanner_service.getSqlmapScanReport("testid")
+    return sqlmap_scanner_service.getSqlmapScanReport("testid") """

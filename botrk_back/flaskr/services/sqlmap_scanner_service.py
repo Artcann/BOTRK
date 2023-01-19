@@ -1,6 +1,6 @@
 import os
 from subprocess import Popen, PIPE
-from dvwa_login_service import getDVWALogin
+from .dvwa_login_service import getDVWALogin
 
 def getSqlmapScanReport(id):
     f = open('addresses.txt', 'r')

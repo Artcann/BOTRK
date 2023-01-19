@@ -1,12 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
+import os
 
 
 def getDVWALogin():
 	username = 'admin'
 	password = 'password'
-
-	f = open('botrk_back\dirsearch_output_test.txt', 'r')
+	
+	f = open('dirsearch_output_test.txt', 'r')
 	file_contents = f.readlines()
 
 	for line in file_contents:
