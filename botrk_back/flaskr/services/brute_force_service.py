@@ -2,12 +2,12 @@ from subprocess import Popen, PIPE
 import requests
 import sys
 from bs4 import BeautifulSoup
-from dvwa_login_service import getDVWALogin
-
+from .dvwa_login_service import getDVWALogin
+import os
 
 def bruteForce():
-    passwordList = "botrk_back//password_list.txt"
-    file = open('botrk_back//dirsearch_output_test.txt', 'r')
+    passwordList = "password_list.txt"
+    file = open('dirsearch_output_test.txt', 'r')
     file_contents = file.readlines()
     address = ""
     sessID = getDVWALogin()['PHPSESSID']
@@ -69,6 +69,3 @@ def bruteRequest(username, password, sessID, url):
     # On retourne le text de la réponse
     return response.text
 
-    
-# Appel de la fonction bruteforce
-bruteForce()

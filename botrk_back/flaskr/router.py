@@ -1,14 +1,13 @@
 import json
-import Blueprint, request
+from flask import Blueprint, request
 import flaskr.services.port_scanner_service as port_scanner_service
 import flaskr.services.nikto_scanner_service as nikto_scanner_service
 import flaskr.services.dirsearch_scanner_service as dirsearch_scanner_service
 import flaskr.services.sqlmap_scanner_service as sql_scanner_service
 import flaskr.services.brute_force_service as brute_force_service
 import flaskr.services.command_injection_service as command_injection
-
-
 from flask_cors import cross_origin
+
 route_bp = Blueprint('route_bp', __name__)
 
 @route_bp.route("/port_scan", methods=['GET'])
@@ -34,5 +33,5 @@ def sqlmap_scan():
 
 @route_bp.route("/brute_force_scan", methods=['GET'])
 @cross_origin(origin="*")
-def sqlmap_scan():
+def brute_force():
     return brute_force_service.bruteForce()
