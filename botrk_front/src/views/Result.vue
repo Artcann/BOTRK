@@ -18,7 +18,7 @@ import { useScanStore } from '../stores/scan.store';
             <span>0/20</span>
         </div>
         <div class="text-info">
-            <span>Hostname: {{portScanReport.nikto_report[1].split("Hostname:")[1]}}</span>
+            <span>Hostname: {{portScanReport.nikto_report[1]}}</span>
             <span>IP Address:</span>
             <span>Scan Time:</span>
         </div>
