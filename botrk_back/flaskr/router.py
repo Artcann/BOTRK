@@ -24,7 +24,7 @@ def reverse_shell():
 @route_bp.route("/dirsearch_scan", methods=['GET'])
 @cross_origin(origin="*")
 def dirsearch_scan():
-    return dirsearch_scanner_service.getDirsearchScanReport(request.args.get("hostname"),"testid") #request.args.get("id"))
+    return dirsearch_scanner_service.getDirsearchScanReport(request.args.get("hostname"))
 
 @route_bp.route("/sqlmap_scan", methods=['GET'])
 @cross_origin(origin="*")
