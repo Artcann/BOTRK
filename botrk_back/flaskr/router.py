@@ -1,11 +1,12 @@
 import json
+import Blueprint, request
 import flaskr.services.port_scanner_service as port_scanner_service
 import flaskr.services.nikto_scanner_service as nikto_scanner_service
 import flaskr.services.dirsearch_scanner_service as dirsearch_scanner_service
 import flaskr.services.sqlmap_scanner_service as sql_scanner_service
 import flaskr.services.brute_force_service as brute_force_service
 import flaskr.services.command_injection_service as command_injection
-import Blueprint, request
+
 
 from flask_cors import cross_origin
 route_bp = Blueprint('route_bp', __name__)
@@ -24,7 +25,7 @@ def reverse_shell():
 @route_bp.route("/dirsearch_scan", methods=['GET'])
 @cross_origin(origin="*")
 def dirsearch_scan():
-    return dirsearch_scanner_service.getDirsearchScanReport(request.args.get("hostname"),"testid") #request.args.get("id"))
+    return dirsearch_scanner_service.getDirsearchScanReport(request.args.get("hostname"))
 
 @route_bp.route("/sqlmap_scan", methods=['GET'])
 @cross_origin(origin="*")

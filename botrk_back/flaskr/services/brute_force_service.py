@@ -6,8 +6,8 @@ from dvwa_login_service import getDVWALogin
 
 
 def bruteForce():
-    passwordList = "C:\\Users\\Const\\Documents\\Projet_Secu\\BOTRK\\botrk_back\\password_list.txt"
-    file = open('botrk_back\dirsearch_output_test.txt', 'r')
+    passwordList = "botrk_back//password_list.txt"
+    file = open('botrk_back//dirsearch_output_test.txt', 'r')
     file_contents = file.readlines()
     address = ""
     sessID = getDVWALogin()['PHPSESSID']
