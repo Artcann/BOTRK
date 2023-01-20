@@ -41,7 +41,7 @@ def bruteForce():
 
             # Incrémentation du compteur pour l'affichage
             i += 1
-    return False
+    return True
 
 def bruteRequest(username, password, sessID, url):
     # Ajout de la session ID pour l'authentification

@@ -34,4 +34,6 @@ def sqlmap_scan():
 @route_bp.route("/brute_force", methods=['GET'])
 @cross_origin(origin="*")
 def brute_force():
-    return brute_force_service.bruteForce()
+    if brute_force_service.bruteForce():
+        return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
+

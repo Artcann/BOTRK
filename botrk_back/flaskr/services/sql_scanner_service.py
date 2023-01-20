@@ -43,7 +43,7 @@ def isVulnerable(response):
 
 def scanSQLInjection():
     report = ""
-    file = open('botrk_back//dirsearch_output_test.txt', 'r')
+    file = open('dirsearch_output_test.txt', 'r')
     file_contents = file.readlines()
     address = ""
     url = ""
