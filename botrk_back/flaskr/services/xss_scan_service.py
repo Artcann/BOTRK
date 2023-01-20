@@ -1,5 +1,5 @@
 from pprint import pprint
-from botrk_back.flaskr.scripts.xss_stored_scanner_script import scan_xss
+import botrk_back.flaskr.scripts.xss_stored_scanner_script
 
 def xssCrawling():
     report = []
