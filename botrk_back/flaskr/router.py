@@ -31,7 +31,7 @@ def dirsearch_scan():
 def sqlmap_scan():
     return sql_scanner_service.getSqlmapScanReport()
 
-@route_bp.route("/brute_force", methods=['GET'])
+@route_bp.route("/brute_force_scan", methods=['GET'])
 @cross_origin(origin="*")
 def brute_force():
     if brute_force_service.bruteForce():
