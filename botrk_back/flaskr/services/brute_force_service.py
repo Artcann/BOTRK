@@ -68,4 +68,3 @@ def bruteRequest(username, password, sessID, url):
     
     # On retourne le text de la réponse
     return response.text
-

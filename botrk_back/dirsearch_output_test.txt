@@ -1,17 +1,30 @@
-# Dirsearch started Fri Jan 20 19:53:18 2023 as: C:\Users\Const\AppData\Local\Programs\Python\Python38\Scripts\dirsearch -u http://45.147.96.25:4242/ -w wordlist.txt -t 80 -r -R 1 -e php -f -o dirsearch_output_test.txt
-
-200     2KB  http://45.147.96.25:4242/about.php
-200   496B   http://45.147.96.25:4242/config/
-301   320B   http://45.147.96.25:4242/config    -> REDIRECTS TO: http://45.147.96.25:4242/config/
-301   318B   http://45.147.96.25:4242/docs    -> REDIRECTS TO: http://45.147.96.25:4242/docs/
-200   488B   http://45.147.96.25:4242/docs/
-301   322B   http://45.147.96.25:4242/external    -> REDIRECTS TO: http://45.147.96.25:4242/external/
-200   462B   http://45.147.96.25:4242/external/
-200     1KB  http://45.147.96.25:4242/favicon.ico
-403   295B   http://45.147.96.25:4242/icons/
-200     5KB  http://45.147.96.25:4242/instructions.php
-200   148B   http://45.147.96.25:4242/php.ini
-200    26B   http://45.147.96.25:4242/robots.txt
-200     5KB  http://45.147.96.25:4242/icons/README
-403   301B   http://45.147.96.25:4242/icons/small/
-301   325B   http://45.147.96.25:4242/icons/small    -> REDIRECTS TO: http://45.147.96.25:4242/icons/small/
+302     0B   http://45.147.96.25:4242/index.php    -> REDIRECTS TO: login.php
+200    14KB  http://45.147.96.25:4242/instructions.php
+200     1KB  http://45.147.96.25:4242/login.php
+302     0B   http://45.147.96.25:4242/logout.php    -> REDIRECTS TO: login.php
+200   148B   http://45.147.96.25:4242/php.ini
+302     0B   http://45.147.96.25:4242/phpinfo.php    -> REDIRECTS TO: login.php
+200    26B   http://45.147.96.25:4242/robots.txt
+302     0B   http://45.147.96.25:4242/security.php    -> REDIRECTS TO: login.php
+403   302B   http://45.147.96.25:4242/server-status
+200     4KB  http://45.147.96.25:4242/setup.php
+301   329B   http://45.147.96.25:4242/vulnerabilities    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/
+403   309B   http://45.147.96.25:4242/config/.htaccess.php
+403   304B   http://45.147.96.25:4242/config/.hta.php
+403   309B   http://45.147.96.25:4242/config/.htpasswd.php
+403   307B   http://45.147.96.25:4242/docs/.htpasswd.php
+403   302B   http://45.147.96.25:4242/docs/.hta.php
+403   307B   http://45.147.96.25:4242/docs/.htaccess.php
+403   311B   http://45.147.96.25:4242/external/.htpasswd.php
+403   306B   http://45.147.96.25:4242/external/.hta.php
+403   311B   http://45.147.96.25:4242/external/.htaccess.php
+403   313B   http://45.147.96.25:4242/vulnerabilities/.hta.php
+403   318B   http://45.147.96.25:4242/vulnerabilities/.htaccess.php
+403   318B   http://45.147.96.25:4242/vulnerabilities/.htpasswd.php
+301   337B   http://45.147.96.25:4242/vulnerabilities/captcha    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/captcha/
+301   334B   http://45.147.96.25:4242/vulnerabilities/exec    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/exec/
+301   332B   http://45.147.96.25:4242/vulnerabilities/fi    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/fi/
+301   340B   http://45.147.96.25:4242/vulnerabilities/javascript    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/javascript/
+301   334B   http://45.147.96.25:4242/vulnerabilities/sqli    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/sqli/
+301   336B   http://45.147.96.25:4242/vulnerabilities/upload    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/upload/
+301   335B   http://45.147.96.25:4242/vulnerabilities/brute    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/brute/

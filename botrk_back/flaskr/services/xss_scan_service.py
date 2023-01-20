@@ -1,5 +1,5 @@
 from pprint import pprint
-import botrk_back.flaskr.scripts.xss_stored_scanner_script
+from flaskr.scripts.xss_stored_scanner_script import scan_xss
 
 def xssCrawling():
     report = []
@@ -12,6 +12,4 @@ def xssCrawling():
     return(address)
 
 
-if __name__ == "__main__":
-    import sys
-    print(xssCrawling())
+print(xssCrawling())
