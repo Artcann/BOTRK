@@ -1,16 +1,18 @@
 from subprocess import Popen, PIPE
 import time
+import os
 
 def getDirsearchScanReport(url):
+    print(os.getcwd())
     print(url)
-    file_id = "dirsearch_output_test"
-    process = Popen(["dirsearch", "-u", url, "-w botrk_back/wordlist.txt", "-t 80", "-r", "--recursion-depth=1", "--suffixes=.php", "-o", file_id], stdout=PIPE)
+    #dirsearch -u http://45.147.96.25:4242/ -w wordlist.txt -t 80 -r -R 1 --suffixes=.php, -o dirsearch_output_test
+    process = Popen(["dirsearch", "-u", "http://45.147.96.25:4242/", "-w", "/usr/share/wordlists/dirb/common.txt", "-t", "80", "-r", "-R","1", "--suffixes=.php", "-o", "botrk_back/dirsearch_output_test"], stdout=PIPE)
     start = time.time()
     print("start dirsearch scanning...")
-    f = open(file_id, 'r')
-    report = f.read()
-    print (report)
 
-    return report
 
-getDirsearchScanReport("http://45.147.96.25:4242/")
+    for line in process.stdout:
+        if("Task Completed" in line.decode('UTF-8')):
+            end = time.time()
+            elapsed = end - start
+            print(f'Temps d\'exécution : {elapsed}s')

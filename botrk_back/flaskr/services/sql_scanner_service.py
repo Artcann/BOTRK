@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from subprocess import Popen, PIPE
-from dvwa_login_service import getDVWALogin
+from .dvwa_login_service import getDVWALogin
 
 s = requests.Session()
 
@@ -115,4 +115,3 @@ def scanSQLInjection():
                             report += dump[:len(dump)-1]
                     print('#####################################')
                     break   
-scanSQLInjection()

