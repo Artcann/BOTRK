@@ -5,7 +5,7 @@ def xssCrawling():
     xssStored = []
     xssReflected = []
     xssDict = {
-        "scan_xss": xssStored,
+        "xxsStored": xssStored,
         "xssReflected": xssReflected
     }
 

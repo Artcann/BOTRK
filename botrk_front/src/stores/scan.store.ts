@@ -9,7 +9,8 @@ export const useScanStore = defineStore({
         nikto_report: [] as Array<String>,
         dirsearch_report: {} as any,
         sqli_report: {} as any,
-        brute_force_report: {} as any
+        brute_force_report: {} as any,
+        scan_xss_report: {} as any
     }),
     actions: {
         async fetchPortScanReport(address: string) {
@@ -58,6 +59,16 @@ export const useScanStore = defineStore({
             })
 
             this.brute_force_report = res.data;
+        }
+        ,
+        async fetchXssScanReport() {
+            let res = await axios({
+                url: "/xss",
+                method: "GET",
+                baseURL: "http://127.0.0.1:5000"
+            })
+            
+            this.scan_xss_report = res.data;
         }
     }
 })
