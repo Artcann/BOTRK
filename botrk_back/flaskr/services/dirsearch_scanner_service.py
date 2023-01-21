@@ -10,6 +10,7 @@ def getDirsearchScanReport(url):
     start = time.time()
     print("start dirsearch scanning...")
     new_file = ""
+    report = []
     elapsed = -1
 
 
@@ -24,6 +25,7 @@ def getDirsearchScanReport(url):
     for line in file_contents:
         if((line.startswith("200") or line.startswith("301") or line.startswith("302") or line.startswith("403")) and not line[13:].split(' ')[0].strip().endswith("/")):
             new_file += line.strip()
+            report.append(line.strip())
             new_file += "\n"
     file.close()
     file = open('dirsearch_output_test.txt', 'w')
@@ -34,4 +36,4 @@ def getDirsearchScanReport(url):
         status = "An error occured during the scan !"
     else:
         status = "The scan took " + str(elapsed) + " seconds !"
-    return[status, new_file]
+    return[status, report]
