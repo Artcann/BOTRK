@@ -113,7 +113,8 @@ def scanSQLInjection():
                             dump = f.read().replace(',', '\t|')
                             print(dump[:len(dump)-1])
                             dump = 'The '+ table + ' SQL table has been dumped:\n'+ dump[:len(dump)-1]
-                            database.append(dump)
+                            for line in dump:
+                                database.append(line)
                     print('#####################################')
                     break 
                 else:

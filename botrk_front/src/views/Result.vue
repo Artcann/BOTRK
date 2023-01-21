@@ -57,7 +57,7 @@ import { useScanStore } from '../stores/scan.store';
                 <h3>Vulnerable URLs:</h3>
                 <p v-for="url in scanReport.sqli_report[0]">{{ url }}</p>
                 <p v-if="!scanReport.sqli_report[1].length">SQLmap failed to dump the database!</p>
-                <div v-else>
+                <div v-else >
                     <h3>SQLmap dumped databases:</h3>
                     <p v-for="dump in scanReport.sqli_report[1]">{{ dump }}</p>
                 </div>
