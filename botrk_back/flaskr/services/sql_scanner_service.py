@@ -110,11 +110,11 @@ def scanSQLInjection():
                             path = path[1:len(path)-4]
                             print('The '+ table + ' SQL table has been dumped:')
                             f = open(path, 'r')
-                            dump = f.read().replace(',', '\t|')
-                            print(dump[:len(dump)-1])
-                            dump = 'The '+ table + ' SQL table has been dumped:\n'+ dump[:len(dump)-1]
-                            for line in dump:
-                                database.append(line)
+                            database.append('The '+ table + ' SQL table has been dumped:<br>')
+                            for line in f:
+                                dump = line.replace(',', '<tab>|')
+                                dump = dump.replace('\n', '<br>')
+                                database.append(dump)
                     print('#####################################')
                     break 
                 else:

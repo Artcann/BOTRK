@@ -9,7 +9,6 @@ RUN pip3 install -r requirements.txt
 RUN pip3 install dirsearch
 RUN apt-get update
 RUN apt-get -y install sqlmap
-EXPOSE 5000:5000
 
 COPY . .
 
