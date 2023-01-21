@@ -37,7 +37,7 @@ def sqlmap_scan():
 def brute_force():
     return brute_force_service.bruteForce()
 
-@route_bp.route("/xss_reflected", methods=['GET'])
+@route_bp.route("/xss", methods=['GET'])
 @cross_origin(origin="*")
-def xss_Crawling():
+def xss_crawling():
     return xss_scan_service.xssCrawling() 
