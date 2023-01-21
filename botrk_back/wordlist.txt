@@ -23,3 +23,5 @@ javascript
 sqli
 upload
 brute
+xss_s
+xss_r

