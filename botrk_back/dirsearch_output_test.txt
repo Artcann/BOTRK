@@ -1,32 +1,34 @@
+200     5KB  http://45.147.96.25:4242/instructions.php
+403   297B   http://45.147.96.25:4242/.hta.php
+200   148B   http://45.147.96.25:4242/php.ini
+403   302B   http://45.147.96.25:4242/server-status
+301   329B   http://45.147.96.25:4242/vulnerabilities    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/
+200     2KB  http://45.147.96.25:4242/setup.php
+301   322B   http://45.147.96.25:4242/external    -> REDIRECTS TO: http://45.147.96.25:4242/external/
+301   318B   http://45.147.96.25:4242/docs    -> REDIRECTS TO: http://45.147.96.25:4242/docs/
 403   302B   http://45.147.96.25:4242/.htpasswd.php
 301   320B   http://45.147.96.25:4242/config    -> REDIRECTS TO: http://45.147.96.25:4242/config/
 403   302B   http://45.147.96.25:4242/.htaccess.php
-403   297B   http://45.147.96.25:4242/.hta.php
-200     2KB  http://45.147.96.25:4242/setup.php
-200   148B   http://45.147.96.25:4242/php.ini
-301   329B   http://45.147.96.25:4242/vulnerabilities    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/
-301   322B   http://45.147.96.25:4242/external    -> REDIRECTS TO: http://45.147.96.25:4242/external/
-403   302B   http://45.147.96.25:4242/server-status
-200   700B   http://45.147.96.25:4242/login.php
-301   318B   http://45.147.96.25:4242/docs    -> REDIRECTS TO: http://45.147.96.25:4242/docs/
 200    26B   http://45.147.96.25:4242/robots.txt
-200     5KB  http://45.147.96.25:4242/instructions.php
-403   307B   http://45.147.96.25:4242/docs/.htaccess.php
-403   307B   http://45.147.96.25:4242/docs/.htpasswd.php
-403   302B   http://45.147.96.25:4242/docs/.hta.php
+200   698B   http://45.147.96.25:4242/login.php
+403   304B   http://45.147.96.25:4242/config/.hta.php
+403   309B   http://45.147.96.25:4242/config/.htpasswd.php
+403   309B   http://45.147.96.25:4242/config/.htaccess.php
 403   318B   http://45.147.96.25:4242/vulnerabilities/.htpasswd.php
 403   313B   http://45.147.96.25:4242/vulnerabilities/.hta.php
 301   336B   http://45.147.96.25:4242/vulnerabilities/upload    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/upload/
-301   340B   http://45.147.96.25:4242/vulnerabilities/javascript    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/javascript/
-301   332B   http://45.147.96.25:4242/vulnerabilities/fi    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/fi/
-301   334B   http://45.147.96.25:4242/vulnerabilities/sqli    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/sqli/
 301   337B   http://45.147.96.25:4242/vulnerabilities/captcha    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/captcha/
-403   318B   http://45.147.96.25:4242/vulnerabilities/.htaccess.php
-301   335B   http://45.147.96.25:4242/vulnerabilities/brute    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/brute/
+301   335B   http://45.147.96.25:4242/vulnerabilities/xss_s    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/xss_s/
 301   334B   http://45.147.96.25:4242/vulnerabilities/exec    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/exec/
-403   309B   http://45.147.96.25:4242/config/.htpasswd.php
-403   304B   http://45.147.96.25:4242/config/.hta.php
-403   309B   http://45.147.96.25:4242/config/.htaccess.php
-403   311B   http://45.147.96.25:4242/external/.htaccess.php
+301   332B   http://45.147.96.25:4242/vulnerabilities/fi    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/fi/
+301   335B   http://45.147.96.25:4242/vulnerabilities/brute    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/brute/
+301   340B   http://45.147.96.25:4242/vulnerabilities/javascript    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/javascript/
+301   334B   http://45.147.96.25:4242/vulnerabilities/sqli    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/sqli/
+301   335B   http://45.147.96.25:4242/vulnerabilities/xss_r    -> REDIRECTS TO: http://45.147.96.25:4242/vulnerabilities/xss_r/
+403   318B   http://45.147.96.25:4242/vulnerabilities/.htaccess.php
 403   306B   http://45.147.96.25:4242/external/.hta.php
 403   311B   http://45.147.96.25:4242/external/.htpasswd.php
+403   311B   http://45.147.96.25:4242/external/.htaccess.php
+403   307B   http://45.147.96.25:4242/docs/.htpasswd.php
+403   302B   http://45.147.96.25:4242/docs/.hta.php
+403   307B   http://45.147.96.25:4242/docs/.htaccess.php
