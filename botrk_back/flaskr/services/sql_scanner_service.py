@@ -118,3 +118,4 @@ def scanSQLInjection():
                     break 
                 else:
                     print("\t[❌] No vulnerability detected, link!")
+    return [injectableURLs, database]
