@@ -6,6 +6,7 @@ import flaskr.services.dirsearch_scanner_service as dirsearch_scanner_service
 import flaskr.services.sql_scanner_service as sql_scanner_service
 import flaskr.services.brute_force_service as brute_force_service
 import flaskr.services.command_injection_service as command_injection
+import flaskr.services.xss_scan_service as xss_scan_service
 from flask_cors import cross_origin
 
 route_bp = Blueprint('route_bp', __name__)
@@ -36,3 +37,7 @@ def sqlmap_scan():
 def brute_force():
     return brute_force_service.bruteForce()
 
+@route_bp.route("/xss_reflected", methods=['GET'])
+@cross_origin(origin="*")
+def xss_Crawling():
+    return xss_scan_service.xssCrawling() 

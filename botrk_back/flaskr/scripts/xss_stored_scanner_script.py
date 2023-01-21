@@ -9,7 +9,7 @@ def get_all_forms(url,link):
         s.headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36'
         res = s.get(link)
         soup = bs(res.text,'html.parser')   
-        payload = {i['name']:i.get('value','') for i in soup.select('input[name]')}         
+        payload = {i['name']:i.get('value','') for i in soup.select('input[name]')}
         #what the above line does is parse the keys and values available in the login form
         payload['username'] = 'admin'
         payload['password'] = 'password'
@@ -124,13 +124,13 @@ def scan_xss(url,link):
     count = 0
     for form in forms:
         form_details = get_form_details(form)
-        pprint('OOOOOOOOOOOOOO')
-        pprint("Clear" in form_details['inputs'][2]['value'])
+        #pprint('OOOOOOOOOOOOOO')
+        #pprint("Clear" in form_details['inputs'][2]['value'])
         content = submit_form(form_details, url, js_script).content.decode()
         if js_script in content:
-            print(f"[+] XSS Detected on {url}")
-            print(f"[*] Form details:")
-            pprint(form_details)
+            #print(f"[+] XSS Detected on {url}")
+            #print(f"[*] Form details:")
+            #pprint(form_details)
             is_vulnerable = True
             count+=1
             # won't break because we want to print other available vulnerable forms
@@ -138,8 +138,8 @@ def scan_xss(url,link):
     return is_vulnerable
 
 
-if __name__ == "__main__":
+'''if __name__ == "__main__":
     import sys
     url = sys.argv[1] # http://45.147.96.25:4242/vulnerabilities/xss_s/  -- Targeted page
     link = sys.argv[2] # http://45.147.96.25:4242/login.php -- The login page 
-    print(scan_xss(url,link))
+    print(scan_xss(url,link))'''
