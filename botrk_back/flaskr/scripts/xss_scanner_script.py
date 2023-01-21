@@ -72,8 +72,11 @@ def submit_form(form_details, url, value):
         # replace all text and search values with `value`
         if input["type"] == "text" or input["type"] == "search" or input["type"] == "textarea":
             input["value"] = value
-        if "Clear" in input["name"]: #This line is present since a button would prevent the good functioning on the DVWA webpage
-            input["value"] = None
+        try:
+            if "Clear" in input["name"]: #This line is present since a button would prevent the good functioning on the DVWA webpage
+                input["value"] = " "
+        except:
+            print("ErrorCatch")
         input_name = input.get("name")
         input_value = input.get("value")
         if input_name and input_value:
@@ -108,7 +111,7 @@ def submit_form(form_details, url, value):
 
 
 
-def scan_xss(url,link):
+def scan_xss(url,link,stored_check=False):
     """
     Given a `url`, it prints all XSS vulnerable forms and 
     returns True if any is vulnerable, False otherwise
@@ -116,7 +119,10 @@ def scan_xss(url,link):
     # get all the forms from the URL
     forms = get_all_forms(url,link)
     print(f"[+] Detected {len(forms)} forms on {url}.")
-    js_script = "<script>alert('hi')</script>"
+    if (not stored_check):
+        js_script = "<script>alert('hi')</script>"
+    else:
+        js_script = "This is a test"
     #js_script = "a"
     # returning value
     is_vulnerable = False
