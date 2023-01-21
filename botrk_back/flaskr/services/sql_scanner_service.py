@@ -112,8 +112,8 @@ def scanSQLInjection():
                             f = open(path, 'r')
                             database.append('The '+ table + ' SQL table has been dumped:<br>')
                             for line in f:
-                                dump = line.replace(',', '<tab>|')
-                                dump = dump.replace('\n', '<br>')
+                                dump = line.replace(',', '    |')
+                                dump = dump.replace('\n', '')
                                 database.append(dump)
                     print('#####################################')
                     break 

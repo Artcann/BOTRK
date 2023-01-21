@@ -26,8 +26,8 @@ import { useScanStore } from '../stores/scan.store';
     <div class="initial_recap">
         <div class="text-info">
             <h1>Dirsearch scan</h1>
-            <p v-if="!scanReport.sqli_report[0]">Scan in progress ...</p>
-            <div v-else>
+            <p >Scan in progress ...</p>
+            <div >
                 <p><h3>Scan status:</h3>{{scanReport.dirsearch_report[0]}}</p>
                 <h3>Results</h3>
                 <div v-for = "url in scanReport.dirsearch_report[1]">
