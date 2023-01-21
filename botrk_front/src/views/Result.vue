@@ -26,21 +26,41 @@ import { useScanStore } from '../stores/scan.store';
     <div class="initial_recap">
         <div class="text-info">
             <h1>Dirsearch scan</h1>
-            <p><span>Scan status:</span>{{scanReport.dirsearch_report[0]}}</p>
-            <span>Results</span>
-            <div v-for = "url in scanReport.dirsearch_report[1]">
-                {{url}}
+            <p v-if="!scanReport.sqli_report[0]">Scan in progress ...</p>
+            <div v-else>
+                <p><h3>Scan status:</h3>{{scanReport.dirsearch_report[0]}}</p>
+                <h3>Results</h3>
+                <div v-for = "url in scanReport.dirsearch_report[1]">
+                    {{url}}
+                </div>
             </div>
         </div>
     </div>
     <div class="initial_recap">
         <div class="text-info">
             <h1>Bruteforce scan</h1>
-            <p v-if="scanReport.brute_force_report[0]">Unable to brute force</p>
-            <div v-else>
-                <span>BruteForce scan success, valid credentials are:</span>
+            <div v-if="scanReport.brute_force_report[0]">
+                <h3>BruteForce scan success, valid credentials are:</h3>
                 <p>Username: {{ scanReport.brute_force_report[1][0] }}</p>
                 <p>Password: {{ scanReport.brute_force_report[1][1] }}</p>
+            </div>
+            <p v-else>BruteForce in progress ...</p>
+        </div>
+    </div>
+    <div class="initial_recap">
+        <div class="text-info">
+            <h1>SQL injection scan</h1>
+            <p v-if="!scanReport.sqli_report[0]">Scan in progress ...</p>
+            <p v-else-if="!scanReport.sqli_report[0].length ">No SQL Injection vulnerabilities found!</p>
+            <div v-else>
+                <h2>SQL injection scan success:</h2>
+                <h3>Vulnerable URLs:</h3>
+                <p v-for="url in scanReport.sqli_report[0]">{{ url }}</p>
+                <p v-if="!scanReport.sqli_report[1].length">SQLmap failed to dump the database!</p>
+                <div v-else>
+                    <h3>SQLmap dumped databases:</h3>
+                    <p v-for="dump in scanReport.sqli_report[1]">{{ dump }}</p>
+                </div>
             </div>
         </div>
     </div>
