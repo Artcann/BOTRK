@@ -30,7 +30,7 @@ import axios from 'axios';
                     axios({
                         url: "/reverse_shell?listenner_url=" + address + "&listenner_port=" + port,
                         method: "GET",
-                        baseURL: "http://127.0.0.1:5000"
+                        baseURL: "https://botrk-back.artcann.eu"
                     })
                 }
                 await this.portScanReport.fetchDirsearchScanReport(this.address);
