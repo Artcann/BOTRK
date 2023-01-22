@@ -1,0 +1,5 @@
+http://45.147.96.25:4242/
+http://45.147.96.25:4242/instructions.php
+http://45.147.96.25:4242/vulnerabilities/upload/
+http://45.147.96.25:4242/vulnerabilities/sqli/
+http://45.147.96.25:4242/vulnerabilities/xss_d/

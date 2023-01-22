@@ -21,22 +21,23 @@ import axios from 'axios';
         methods: {
             async scan() {
                 //this.portScanReport.fetchPortScanReport(this.address);
-                console.log("Scan")
+                // console.log("Scan")
                 this.$router.push('/results')
-                if(this.listenner !== "") {
-                    const address = this.listenner.split(":")[0]
-                    const port = this.listenner.split(":")[1]
+                // if(this.listenner !== "") {
+                //     const address = this.listenner.split(":")[0]
+                //     const port = this.listenner.split(":")[1]
 
-                    axios({
-                        url: "/reverse_shell?listenner_url=" + address + "&listenner_port=" + port,
-                        method: "GET",
-                        baseURL: "https://botrk-back.artcann.eu"
-                    })
-                }
-                await this.portScanReport.fetchDirsearchScanReport(this.address);
-                this.portScanReport.fetchXssScanReport();
-                this.portScanReport.fetchBruteForceScanReport();
-                this.portScanReport.fetchSQLInjectionScanReport();
+                //     axios({
+                //         url: "/reverse_shell?listenner_url=" + address + "&listenner_port=" + port,
+                //         method: "GET",
+                //         baseURL: "https://botrk-back.artcann.eu"
+                //     })
+                // }
+                // await this.portScanReport.fetchDirsearchScanReport(this.address);
+                // this.portScanReport.fetchXssScanReport();
+                // this.portScanReport.fetchBruteForceScanReport();
+                // this.portScanReport.fetchSQLInjectionScanReport();
+                this.portScanReport.fetchFileUploadReport();
             }
         }
     }

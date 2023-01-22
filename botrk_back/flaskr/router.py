@@ -7,6 +7,7 @@ import flaskr.services.sql_scanner_service as sql_scanner_service
 import flaskr.services.brute_force_service as brute_force_service
 import flaskr.services.command_injection_service as command_injection
 import flaskr.services.xss_scan_service as xss_scan_service
+import flaskr.services.upload_file_service as file_upload_service
 from flask_cors import cross_origin, CORS
 
 route_bp = Blueprint('route_bp', __name__)
@@ -43,3 +44,8 @@ def brute_force():
 @cross_origin(origin="*")
 def xss_crawling():
     return xss_scan_service.xssCrawling() 
+
+@route_bp.route("/file_upload", methods=['GET'])
+@cross_origin(origin="*")
+def file_upload():
+    return file_upload_service.fileUpload()
