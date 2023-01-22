@@ -13,17 +13,7 @@ import { useScanStore } from '../stores/scan.store';
 </script>
 
 <template>
-    <div class="initial_recap">
-        <div class="score-recap">
-            <span>0/20</span>
-        </div>
-        <div class="text-info">
-            <span>Hostname: {{scanReport.nikto_report[1]}}</span>
-            <span>IP Address:</span>
-            <span>Scan Time:</span>
-        </div>
-    </div>
-    <div class="initial_recap">
+    <div class="initial_recap" style="margin-top: 50px;">
         <div class="text-info">
             <h1>Dirsearch scan</h1>
             <p >Scan in progress ...</p>
@@ -62,6 +52,15 @@ import { useScanStore } from '../stores/scan.store';
                     <p v-for="dump in scanReport.sqli_report[1]">{{ dump }}</p>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="initial_recap">
+        <div class="text-info">
+            <h1>XSS Injections Report</h1>
+            <h3>Url where reflected worked :</h3>
+            <span v-for="url in scanReport.scan_xss_report.xssReflected">{{ url }}</span>
+            <h3>Url where stored worked :</h3>
+            <span v-for="url in scanReport.scan_xss_report.xxsStored">{{ url }}</span>
         </div>
     </div>
 </template>
