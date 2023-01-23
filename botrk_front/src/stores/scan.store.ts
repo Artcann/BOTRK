@@ -10,7 +10,8 @@ export const useScanStore = defineStore({
         dirsearch_report: {} as any,
         sqli_report: {} as any,
         brute_force_report: {} as any,
-        scan_xss_report: {} as any
+        scan_xss_report: {} as any,
+        file_upload_report: {} as any
     }),
     actions: {
         async fetchPortScanReport(address: string) {
@@ -69,6 +70,16 @@ export const useScanStore = defineStore({
             })
             
             this.scan_xss_report = res.data;
+        }
+        ,
+        async fetchFileUploadReport() {
+            let res = await axios({
+                url: "/file_upload",
+                method: "GET",
+                baseURL: "http://127.0.0.1:5000"
+            })
+            
+            this.file_upload_report = res.data;
         }
     }
 })

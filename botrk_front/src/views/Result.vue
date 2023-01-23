@@ -63,6 +63,17 @@ import { useScanStore } from '../stores/scan.store';
             <span v-for="url in scanReport.scan_xss_report.xxsStored">{{ url }}</span>
         </div>
     </div>
+    <div class="initial_recap">
+        <div class="text-info">
+            <h1>File upload scan</h1>
+            <p v-if="!scanReport.file_upload_report">Scan in progress ...</p>
+            <p v-else-if="!scanReport.file_upload_report.length ">No file upload vulnerabilities found!</p>
+            <div v-else>
+                <h2>File upload scan success:</h2>
+                <p v-for="url in scanReport.file_upload_report">{{ url }}</p>
+            </div>
+        </div>
+    </div>
 </template>
         
 
