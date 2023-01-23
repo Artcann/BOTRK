@@ -15,7 +15,8 @@ def xssCrawling():
         address = line[13:].split(' ')[0].strip()
         if scan_xss(address, 'http://45.147.96.25:4242/login.php'):
             if scan_xss(address, 'http://45.147.96.25:4242/login.php', stored_check= True):
-                xssStored.append(address)
+                xssReflected.append(address)                
             else:
-                xssReflected.append(address)
+                xssStored.append(address)
+
     return(xssDict)
