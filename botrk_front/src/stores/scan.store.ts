@@ -76,7 +76,7 @@ export const useScanStore = defineStore({
             let res = await axios({
                 url: "/file_upload",
                 method: "GET",
-                baseURL: "http://127.0.0.1:5000"
+                baseURL: "https://botrk-back.artcann.eu"
             })
             
             this.file_upload_report = res.data;
